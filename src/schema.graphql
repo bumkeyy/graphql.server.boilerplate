@@ -1,6 +1,10 @@
 type Query {
-  getMachine(id: ID!): machine
+  getMachine(id: ID!): Machine
   getMachines: [Machine]
+}
+
+type Subscription {
+  MachineSubscription: [Machine]
 }
 
 type Machine {

@@ -1,4 +1,5 @@
 import cors from 'cors';
+import { NatsPubSub } from 'graphql-nats-subscriptions';
 import { GraphQLServer } from 'graphql-yoga';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -6,8 +7,17 @@ import schema from './schema';
 
 class App {
   public app: GraphQLServer;
+  public pubSub: any;
   constructor() {
-    this.app = new GraphQLServer({ schema });
+    this.pubSub = new NatsPubSub();
+    this.app = new GraphQLServer({
+      schema,
+      context: () => {
+        return {
+          pubSub: this.pubSub,
+        };
+      },
+    });
     this.middlewares();
   }
   private middlewares = (): void => {
