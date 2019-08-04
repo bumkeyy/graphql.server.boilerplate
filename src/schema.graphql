@@ -3,8 +3,12 @@ type Query {
   getMachines: [Machine]
 }
 
+type MachinePublish {
+  MachinePublish: [Machine]
+}
+
 type Subscription {
-  MachineSubscription: [Machine]
+  MachineSubscription: String
 }
 
 type Machine {

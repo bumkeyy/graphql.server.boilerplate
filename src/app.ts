@@ -10,6 +10,7 @@ class App {
   public pubSub: any;
   constructor() {
     this.pubSub = new NatsPubSub();
+    // this.pubSub = new PubSub();
     this.app = new GraphQLServer({
       schema,
       context: () => {

@@ -1,4 +1,4 @@
-export const typeDefs = ["type Query {\n  getMachine(id: ID!): Machine\n  getMachines: [Machine]\n}\n\ntype Subscription {\n  MachineSubscription: [Machine]\n}\n\ntype Machine {\n  id: ID!\n  name: String!\n  type: String!\n  state: String!\n}\n"];
+export const typeDefs = ["type Query {\n  getMachine(id: ID!): Machine\n  getMachines: [Machine]\n}\n\ntype MachinePublish {\n  MachinePublish: [Machine]\n}\n\ntype Subscription {\n  MachineSubscription: String\n}\n\ntype Machine {\n  id: ID!\n  name: String!\n  type: String!\n  state: String!\n}\n"];
 /* tslint:disable */
 
 export interface Query {
@@ -18,5 +18,9 @@ export interface Machine {
 }
 
 export interface Subscription {
-  MachineSubscription: Array<Machine> | null;
+  MachineSubscription: string | null;
+}
+
+export interface MachinePublish {
+  MachinePublish: Array<Machine> | null;
 }

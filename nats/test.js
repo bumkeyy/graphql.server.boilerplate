@@ -1,9 +1,8 @@
-const {
-  NatsPubSub
-} = require('graphql-nats-subscriptions');
-const pubsub = new NatsPubSub(); // connecting to nats://localhost on default
-const subscriptionManager = new SubscriptionManager({
-  schema,
-  pubsub,
-  setupFunctions: {},
+var NATS = require('nats');
+var nats = NATS.connect();
+
+
+// Simple Subscriber
+nats.subscribe('machineInfo', function (msg) {
+  console.log('Received a message: ' + msg);
 });
