@@ -1,0 +1,11 @@
+type Query {
+  getMachine(id: ID!): machine
+  getMachines: [Machine]
+}
+
+type Machine {
+  id: ID!
+  name: String!
+  type: String!
+  state: String!
+}

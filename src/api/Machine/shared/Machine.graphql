@@ -1,0 +1,6 @@
+type Machine {
+  id: ID!
+  name: String!
+  type: String!
+  state: String!
+}
